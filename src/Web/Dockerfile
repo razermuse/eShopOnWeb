@@ -16,8 +16,6 @@ WORKDIR /app/src/Web
 RUN dotnet tool update --global dotnet-ef
 RUN dotnet restore
 RUN dotnet tool restore
-RUN dotnet ef database update -c catalogcontext -p ../Infrastructure/Infrastructure.csproj -s Web.csproj
-RUN dotnet ef database update -c appidentitydbcontext -p ../Infrastructure/Infrastructure.csproj -s Web.csproj
 RUN dotnet publish -c Release -o out
 
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
